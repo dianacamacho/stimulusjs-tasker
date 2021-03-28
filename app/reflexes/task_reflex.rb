@@ -5,4 +5,8 @@ class TaskReflex < StimulusReflex::Reflex
     # set in html, eg: data-id="10" gives element.dataset.id => "10"
     Task.find(element.dataset.id).update(completed_at: element.checked ? Time.current : nil)
   end
+
+  def destroy
+    Task.find(element.dataset.id).destroy!
+  end
 end

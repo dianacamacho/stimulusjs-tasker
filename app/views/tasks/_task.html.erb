@@ -1,4 +1,4 @@
-<div class="list-group-item" data-controller="task">
+<div class="list-group-item d-flex justify-content-between" data-controller="task">
   <div class="custom-control custom-checkbox">
     <!-- data-id will send "id" as attribute in element.dataset.id -->
     <input  type="checkbox"
@@ -15,5 +15,10 @@
         <%= task.name %>
       <% end %>
     </label>
+  </div>
+  <div>
+    <a href="#" data-id="<%= task.id %>" data-action="click->task#destroy">
+      <i class="fa fa-times text-danger"></i>
+    </a>
   </div>
 </div>
