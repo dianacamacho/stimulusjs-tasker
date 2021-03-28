@@ -10,6 +10,13 @@
             <%= render list.tasks.incomplete_first %>
           </div>
         </div>
+        <div class="card-footer">
+          <!-- bootstrap form takes care of from styling without having to add a ton of classes -->
+          <%= bootstrap_form_with model: Task.new, url: "", layout: :inline, data: { reflex: "submit->Task#create", list_id: list.id } do |f| %>
+            <%= f.text_field  :name, skip_label: true, placeholder: "What needs to be done?", wrapper_class: "flex-fill mr-2", class: "w-100" %>
+            <%= f.submit "Add Task" %>
+          <% end %>
+        </div>
       </div>
     </col-6>
   </div>
